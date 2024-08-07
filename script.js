@@ -4,9 +4,9 @@ var count = 0;
 var userName = "";
 const array = [
   `${userName} Salom! Bugun qanday kayfiyattasiz?`,
-  "Ismim jasmina, Sizning ismiz nima?",
-  "Uncha tushunmadim bu laqabizmi yoki ismiz ismizi tuliq ayting odatda chiroyli va xurmat bulishligi uchun ism har doim katta xarfllar bilan yoziladi misol uchun 'Jasmina' manabu mmaqsadga muvofiq buldi endi siz ayting?",
-  `Vov manga ${userName} isimli yigitlar juda yoqadi sababi judayam chiroyli ism.
+  "Ismim John, Sizning ismingiz nima?",
+  "Uncha tushunmadim bu laqabizmi yoki ismiz ismizi tuliq ayting odatda chiroyli va xurmat bulishligi uchun ism har doim katta xarflar bilan yoziladi misol uchun 'John' manabu maqsadga muvofiq buldi endi siz ayting?",
+  `${userName} isimingiz judayam chiroyli ism ekan.
   Assalomu alaykum ${userName} Siz bilan tanishganimdan xursandman. Siz qaysi mavzularga qiziqasiz?`,
   "Bo'sh vaqtlaringizda nima bilan shug'ullanasiz?",
   "Hop siz dasturchimisiz?",
@@ -43,6 +43,7 @@ function myFunc() {
     location.reload();
   }
 }
+
 
 
 
