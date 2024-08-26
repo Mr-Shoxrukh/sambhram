@@ -1,119 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
     <title>Google form</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <div class="navbar">
-        <div class="navbar-top">
-            <div class="navbar-blog">
-                <i class="bx bxs-file"></i>
-                <span class="f-bold">Registration Form</span>
-                <i class="bx bx-folder"></i>
-                <i class="bx bx-star"></i>
-                <span class="f-h6">All changes saved in Drive</span>
-            </div>
-            <div class="navbar-blog">
-                <i class="bx bx-palette"></i>
-                <i class="bx bx-show"></i>
-                <i class="bx bx-undo"></i>
-                <i class="bx bx-redo"></i>
-                <button class="btn-primary">Send</button>
-                <i class="bx bx-dots-vertical-rounded"></i>
-                <img class="avatar-img" src="./avatar/avatar.jpg" alt="">
-            </div>
+      <div class="navbar-top">
+        <div class="navbar-blog">
+          <i class="bx bxs-file"></i>
+          <span class="f-bold">Registration Form</span>
+          <i class="bx bx-folder"></i>
+          <i class="bx bx-star"></i>
+          <span class="f-h6">All changes saved in Drive</span>
         </div>
-        <div class="navbar-bottom">
-            <button class="active">Question</button>
-            <button>Responses</button>
-            <button>Settings</button>
+        <div class="navbar-blog">
+          <i class="bx bx-palette"></i>
+          <i class="bx bx-show"></i>
+          <i class="bx bx-undo"></i>
+          <i class="bx bx-redo"></i>
+          <button id="send-id" class="btn-primary">Send</button>
+          <i class="bx bx-dots-vertical-rounded"></i>
+          <img class="avatar-img" src="./avatar/avatar.jpg" alt="" />
         </div>
+      </div>
+      <div class="navbar-bottom">
+        <button class="navbar-button active" id="Question">Question</button>
+        <button class="navbar-button" id="Responses">Responses</button>
+        <button class="navbar-button" id="Settings">Settings</button>
+      </div>
     </div>
     <!-- Navbar -->
 
     <!-- Banner -->
-    <div class="banner">
+    <div id="banner-Question" class="banner">
+      <form id="formID" action="">
         <div class="banner-box banner-box-top">
-            <h1>Registration Form</h1>
-            <span class="text-gray">Form description</span>
+          <h1>Registration Form Question</h1>
+          <span class="text-gray">Form description</span>
         </div>
         <div class="banner-box banner-box-input">
-            <label>Full name</label>
-            <input class="input-click" type="text" placeholder="Short-answer text">
-            <ul class="banner-box-ul" id="box-ul">
-                <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-            </ul>
+          <label>Full name</label>
+          <input
+            class="input-click"
+            type="text"
+            placeholder="Short-answer text"
+          />
+          <ul class="banner-box-ul" id="box-ul">
+            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+          </ul>
         </div>
         <div class="banner-box banner-box-input">
-            <label>Company</label>
-            <input class="input-click" type="text" placeholder="Short-answer text">
-            <ul class="banner-box-ul" id="box-ul">
-                <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-            </ul>
+          <label>Company</label>
+          <input
+            class="input-click"
+            type="text"
+            placeholder="Short-answer text"
+          />
+          <ul class="banner-box-ul" id="box-ul">
+            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+          </ul>
         </div>
         <div class="banner-box banner-box-input">
-            <label>Phone</label>
-            <input class="input-click" type="text" placeholder="Short-answer text">
-            <ul class="banner-box-ul" id="box-ul">
-                <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-            </ul>
+          <label>Phone</label>
+          <input
+            class="input-click"
+            type="text"
+            placeholder="Short-answer text"
+          />
+          <ul class="banner-box-ul" id="box-ul">
+            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+          </ul>
         </div>
         <div class="banner-box banner-box-input">
-            <label>Email</label>
-            <input class="input-click" type="text" placeholder="Short-answer text">
-            <ul class="banner-box-ul" id="box-ul">
-                <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-                <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-            </ul>
+          <label>Email</label>
+          <input
+            class="input-click"
+            type="text"
+            placeholder="Short-answer text"
+          />
+          <ul class="banner-box-ul" id="box-ul">
+            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+          </ul>
         </div>
         <div class="banner-box banner-box-input">
-            <label>Would you like to be added to our mailing list?</label>
-            <div class="banner-box-radio-input">
-                <input type="radio" name="checkList">
-                <label for="">Yes</label>
-            </div>
-            <div class="banner-box-radio-input">
-                <input type="radio" name="checkList">
-                <label for="">No</label>
-            </div>
+          <label>Would you like to be added to our mailing list?</label>
+          <div class="banner-box-radio-input">
+            <input type="radio" name="checkList" value="1"/>
+            <label for="">Yes</label>
+          </div>
+          <div class="banner-box-radio-input">
+            <input type="radio" name="checkList" value="0"/>
+            <label for="">No</label>
+          </div>
         </div>
+      </form>
 
-        <!-- fixed action -->
-        <div class="banner-action">
-            <i class="bx bx-plus-circle"></i>
-            <i class="bx bx-file"></i>
-            <i class="bx bx-text"></i>
-            <i class="bx bx-image"></i>
-            <i class="bx bxs-videos"></i>
-            <i class="bx bx-cube"></i>
+      <!-- fixed action -->
+      <div class="banner-action">
+        <i class="bx bx-plus-circle"></i>
+        <i class="bx bx-file"></i>
+        <i class="bx bx-text"></i>
+        <i class="bx bx-image"></i>
+        <i class="bx bxs-videos"></i>
+        <i class="bx bx-cube"></i>
+      </div>
+      <!-- fixed action -->
+    </div>
+    <!-- Banner -->
+
+    <!-- Banner -->
+    <div id="banner-Responses" class="banner active">
+      <div class="banner-box banner-box-top">
+        <h1>Responses Table</h1>
+        <span class="text-gray">All data - <span id="count-users"></span></span>
+      </div>
+      <div class="banner-box banner-box-input banner-box-responses">
+        <table>
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Full Name</th>
+                <th>Company</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- Import from js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Banner -->
+
+    <!-- Banner -->
+    <div id="banner-Settings" class="banner">
+      <div class="banner-box banner-box-top">
+        <h1>Registration Form Settings</h1>
+        <span class="text-gray">Form description</span>
+      </div>
+      <div class="banner-box banner-box-input">
+        <label>Full name</label>
+        <input
+          class="input-click"
+          type="text"
+          placeholder="Short-answer text"
+        />
+        <ul class="banner-box-ul" id="box-ul">
+          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+        </ul>
+      </div>
+      <div class="banner-box banner-box-input">
+        <label>Company</label>
+        <input
+          class="input-click"
+          type="text"
+          placeholder="Short-answer text"
+        />
+        <ul class="banner-box-ul" id="box-ul">
+          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+        </ul>
+      </div>
+      <div class="banner-box banner-box-input">
+        <label>Phone</label>
+        <input
+          class="input-click"
+          type="text"
+          placeholder="Short-answer text"
+        />
+        <ul class="banner-box-ul" id="box-ul">
+          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+        </ul>
+      </div>
+      <div class="banner-box banner-box-input">
+        <label>Email</label>
+        <input
+          class="input-click"
+          type="text"
+          placeholder="Short-answer text"
+        />
+        <ul class="banner-box-ul" id="box-ul">
+          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
+          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
+        </ul>
+      </div>
+      <div class="banner-box banner-box-input">
+        <label>Would you like to be added to our mailing list?</label>
+        <div class="banner-box-radio-input">
+          <input type="radio" name="checkList" />
+          <label for="">Yes</label>
         </div>
-        <!-- fixed action -->
+        <div class="banner-box-radio-input">
+          <input type="radio" name="checkList" />
+          <label for="">No</label>
+        </div>
+      </div>
+
+      <!-- fixed action -->
+      <div class="banner-action">
+        <i class="bx bx-plus-circle"></i>
+        <i class="bx bx-file"></i>
+        <i class="bx bx-text"></i>
+        <i class="bx bx-image"></i>
+        <i class="bx bxs-videos"></i>
+        <i class="bx bx-cube"></i>
+      </div>
+      <!-- fixed action -->
     </div>
     <!-- Banner -->
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

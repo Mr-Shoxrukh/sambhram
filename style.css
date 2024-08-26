@@ -136,10 +136,15 @@ body {
 /* banner */
 .banner
 {
+    display: none;
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
     position: relative;
+}
+
+.banner.active{
+    display: block;
 }
 
 .banner .banner-box
@@ -229,4 +234,17 @@ body {
     padding: 10px;
     text-size-adjust: 10px;
     box-shadow: 0 0 10px var(--shadow);
+}
+
+/* responses */
+.banner .banner-box.banner-box-responses
+{
+    height: auto;
+}
+
+#table-body td
+{
+    color: var(--grey);
+    font-size: 15px;
+    padding: 5px 0;
 }
