@@ -26,6 +26,13 @@ navBtnClick.forEach((btnClick) => {
         // Button active
         navBtnClick.forEach(btn => btn.classList.remove("active"));
         this.classList.add("active");
+
+        if (divPageId == "Question") {
+            sendBtnId.disabled = false;
+        }else{
+            sendBtnId.disabled = true;
+        }
+        
     })
 })
 

@@ -125,6 +125,10 @@ body {
     color: var(--white);
     border-radius: 3px;
 }
+.btn-primary:disabled
+{
+    opacity: 0.5;
+}
 
 .avatar-img
 {
