@@ -3,252 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crud - Create, Update, Delete</title>
+    <!-- Font Awesome -->
     <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <title>Google form</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-    <!-- Navbar -->
-    <div class="navbar">
-      <div class="navbar-top">
-        <div class="navbar-blog">
-          <i class="bx bxs-file"></i>
-          <span class="f-bold">Registration Form</span>
-          <i class="bx bx-folder"></i>
-          <i class="bx bx-star"></i>
-          <span class="f-h6">All changes saved in Drive</span>
-        </div>
-        <div class="navbar-blog">
-          <i class="bx bx-palette"></i>
-          <i class="bx bx-show"></i>
-          <i class="bx bx-undo"></i>
-          <i class="bx bx-redo"></i>
-          <button id="send-id" class="btn-primary">Send</button>
-          <i class="bx bx-dots-vertical-rounded"></i>
-          <img class="avatar-img" src="./avatar/avatar.jpg" alt="" />
-        </div>
-      </div>
-      <div class="navbar-bottom">
-        <button class="navbar-button active" id="Question">Question</button>
-        <button class="navbar-button" id="Responses">Responses</button>
-        <button class="navbar-button" id="Settings">Settings</button>
-      </div>
-    </div>
-    <!-- Navbar -->
+    <div class="container text-center px-3">
+      <!-- Form -->
+      <form class="w-50 mx-auto my-3">
+        <!-- Email input -->
+        <input
+          type="text"
+          id="inputName"
+          class="form-control my-2"
+          placeholder="Enter Full name"
+          name=""
+        />
 
-    <!-- Banner -->
-    <div id="banner-Question" class="banner active">
-      <form id="formID" action="">
-        <div class="banner-box banner-box-top">
-          <h1>Registration Form Question</h1>
-          <span class="text-gray">Form description</span>
-        </div>
-        <div class="banner-box banner-box-input">
-          <label>Full name</label>
-          <input
-            class="input-click"
-            type="text"
-            placeholder="Short-answer text"
-          />
-          <ul class="banner-box-ul" id="box-ul">
-            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-          </ul>
-        </div>
-        <div class="banner-box banner-box-input">
-          <label>Company</label>
-          <input
-            class="input-click"
-            type="text"
-            placeholder="Short-answer text"
-          />
-          <ul class="banner-box-ul" id="box-ul">
-            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-          </ul>
-        </div>
-        <div class="banner-box banner-box-input">
-          <label>Phone</label>
-          <input
-            class="input-click"
-            type="text"
-            placeholder="Short-answer text"
-          />
-          <ul class="banner-box-ul" id="box-ul">
-            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-          </ul>
-        </div>
-        <div class="banner-box banner-box-input">
-          <label>Email</label>
-          <input
-            class="input-click"
-            type="text"
-            placeholder="Short-answer text"
-          />
-          <ul class="banner-box-ul" id="box-ul">
-            <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-            <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-          </ul>
-        </div>
-        <div class="banner-box banner-box-input">
-          <label>Would you like to be added to our mailing list?</label>
-          <div class="banner-box-radio-input">
-            <input type="radio" name="checkList" value="1"/>
-            <label for="">Yes</label>
-          </div>
-          <div class="banner-box-radio-input">
-            <input type="radio" name="checkList" value="0"/>
-            <label for="">No</label>
-          </div>
-        </div>
+        <!-- Submit button -->
+        <button
+          data-mdb-ripple-init
+          type="submit"
+          class="btn btn-primary btn-block w-50 m-auto"
+          id="createBtn"
+        >
+          Create
+        </button>
+        <button
+          data-mdb-ripple-init
+          type="submit"
+          class="btn btn-primary btn-block w-50 m-auto"
+          style="display: none"
+          id="editBtn"
+        >
+          Save
+        </button>
       </form>
 
-      <!-- fixed action -->
-      <div class="banner-action">
-        <i class="bx bx-plus-circle"></i>
-        <i class="bx bx-file"></i>
-        <i class="bx bx-text"></i>
-        <i class="bx bx-image"></i>
-        <i class="bx bxs-videos"></i>
-        <i class="bx bx-cube"></i>
-      </div>
-      <!-- fixed action -->
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="showBody">
+          <!-- // -->
+        </tbody>
+      </table>
     </div>
-    <!-- Banner -->
 
-    <!-- Banner -->
-    <div id="banner-Responses" class="banner">
-      <div class="banner-box banner-box-top">
-        <h1>Responses Table</h1>
-        <span class="text-gray">All data - <span id="count-users"></span></span>
-      </div>
-      <div class="banner-box banner-box-input banner-box-responses">
-        <table>
-          <thead>
-            <tr>
-                <th>No</th>
-                <th>Full Name</th>
-                <th>Company</th>
-                <th>Phone</th>
-                <th>Email</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <!-- Import from js -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!-- Banner -->
+    <script>
+      const createBtn = document.getElementById("createBtn");
+      const deleteBtn = document.getElementById("deleteBtn");
+      const editBtn = document.getElementById("editBtn");
+      const inputName = document.getElementById("inputName");
+      const showBody = document.getElementById("showBody");
+      var array = [];
 
-    <!-- Banner -->
-    <div id="banner-Settings" class="banner">
-      <div class="banner-box banner-box-top">
-        <h1>Registration Form Settings</h1>
-        <span class="text-gray">Form description</span>
-      </div>
-      <div class="banner-box banner-box-input">
-        <label>Full name</label>
-        <input
-          class="input-click"
-          type="text"
-          placeholder="Short-answer text"
-        />
-        <ul class="banner-box-ul" id="box-ul">
-          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-        </ul>
-      </div>
-      <div class="banner-box banner-box-input">
-        <label>Company</label>
-        <input
-          class="input-click"
-          type="text"
-          placeholder="Short-answer text"
-        />
-        <ul class="banner-box-ul" id="box-ul">
-          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-        </ul>
-      </div>
-      <div class="banner-box banner-box-input">
-        <label>Phone</label>
-        <input
-          class="input-click"
-          type="text"
-          placeholder="Short-answer text"
-        />
-        <ul class="banner-box-ul" id="box-ul">
-          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-        </ul>
-      </div>
-      <div class="banner-box banner-box-input">
-        <label>Email</label>
-        <input
-          class="input-click"
-          type="text"
-          placeholder="Short-answer text"
-        />
-        <ul class="banner-box-ul" id="box-ul">
-          <li class="main__box-ul-li"><i class="bx bx-bold"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-italic"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-underline"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-link"></i></li>
-          <li class="main__box-ul-li"><i class="bx bx-text-slash"></i></li>
-        </ul>
-      </div>
-      <div class="banner-box banner-box-input">
-        <label>Would you like to be added to our mailing list?</label>
-        <div class="banner-box-radio-input">
-          <input type="radio" name="checkList" />
-          <label for="">Yes</label>
-        </div>
-        <div class="banner-box-radio-input">
-          <input type="radio" name="checkList" />
-          <label for="">No</label>
-        </div>
-      </div>
+      //   create
+      createBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        array.push(inputName.value);
+        localStorage.setItem("userArray", JSON.stringify(array));
+        inputName.value = "";
+        showTable();
+      });
 
-      <!-- fixed action -->
-      <div class="banner-action">
-        <i class="bx bx-plus-circle"></i>
-        <i class="bx bx-file"></i>
-        <i class="bx bx-text"></i>
-        <i class="bx bx-image"></i>
-        <i class="bx bxs-videos"></i>
-        <i class="bx bx-cube"></i>
-      </div>
-      <!-- fixed action -->
-    </div>
-    <!-- Banner -->
+      //   show array
+      function showTable() {
+        array = JSON.parse(localStorage.getItem("userArray"));
+        var showBodyMap = array.map(
+          (item, index) =>
+            `<tr>
+            <th scope="row">${index + 1}</th>
+            <td>${item}</td>
+            <td>
+              <button class="btn btn-primary" onclick="editFun(${index})">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" onclick="deleteFun(${index})">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>`
+        );
+        showBody.innerHTML = showBodyMap.join("");
+      }
+      showTable();
 
-    <script src="script.js"></script>
+      //   delete
+      function deleteFun(id) {
+        if (id >= 0 && id < array.length) {
+          array.splice(id, 1); // Remove one item at the specified index
+        } else {
+          console.error("Invalid index");
+        }
+        localStorage.setItem("userArray", JSON.stringify(array));
+        showTable();
+      }
+
+      //   edit
+      function editFun(id) {
+        editBtn.style.display = "block";
+        createBtn.style.display = "none";
+        inputName.value = array[id];
+        inputName.setAttribute("name", id)
+      }
+
+      // save
+      editBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        var index = inputName.getAttribute("name");
+        if (index >= 0 && index < array.length) {
+            array[index] = inputName.value;
+        }
+        localStorage.setItem("userArray", JSON.stringify(array));
+        editBtn.style.display = "none";
+        createBtn.style.display = "block";
+        inputName.value = "";
+        showTable();
+      });
+    </script>
   </body>
 </html>
