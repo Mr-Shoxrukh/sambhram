@@ -105,7 +105,12 @@
         );
         showBody.innerHTML = showBodyMap.join("");
       }
-      showTable();
+      console.log(JSON.parse(localStorage.getItem("userArray")).length);
+      
+      
+      if (JSON.parse(localStorage.getItem("userArray")).length > 0) {
+        showTable();
+      }
 
       //   delete
       function deleteFun(id) {
