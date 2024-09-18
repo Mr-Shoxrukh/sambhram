@@ -3,147 +3,174 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crud - Create, Update, Delete</title>
-    <!-- Font Awesome -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
-      rel="stylesheet"
-    />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(#ffffffc3, #ffffffb2),
+          url("https://png.pngtree.com/thumb_back/fh260/background/20200808/pngtree-abstract-vector-background-squares-going-in-perspective-on-gray-background-image_388921.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .container button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #444;
+      }
+      .box {
+        width: 180px;
+        height: 180px;
+        border-radius: 15px;
+        background: linear-gradient(145deg, #f0f0f0, #cacaca);
+        box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2),
+          -8px -8px 16px rgba(255, 255, 255, 0.6);
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      .box:hover {
+        transform: translateY(-10px);
+        box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.3),
+          -12px -12px 24px rgba(255, 255, 255, 0.8);
+      }
+
+      .blok {
+        width: 60px;
+        height: 60px;
+        background: #d2d2d2;
+        float: left;
+        border: 1px solid #9d9d9d;
+        transition: background-color 0.3s;
+      }
+      .blok:active {
+        background-color: #0056b3 !important;
+      }
+
+      .cube-1 {
+        border-top-left-radius: 15px;
+      }
+      .cube-3 {
+        border-top-right-radius: 15px;
+      }
+      .cube-7 {
+        border-bottom-left-radius: 15px;
+      }
+      .cube-9 {
+        border-bottom-right-radius: 15px;
+      }
+
+      .blok:focus {
+        background-color: #003366 !important;
+        outline: none;
+      }
+      .blok.active {
+        background: #000;
+      }
+    </style>
   </head>
   <body>
-    <div class="container text-center px-3">
-      <!-- Form -->
-      <form class="w-50 mx-auto my-3">
-        <!-- Email input -->
-        <input
-          type="text"
-          id="inputName"
-          class="form-control my-2"
-          placeholder="Enter Full name"
-          name=""
-        />
-
-        <!-- Submit button -->
-        <button
-          data-mdb-ripple-init
-          type="submit"
-          class="btn btn-primary btn-block w-50 m-auto"
-          id="createBtn"
-        >
-          Create
-        </button>
-        <button
-          data-mdb-ripple-init
-          type="submit"
-          class="btn btn-primary btn-block w-50 m-auto"
-          style="display: none"
-          id="editBtn"
-        >
-          Save
-        </button>
-      </form>
-
-      <!-- Table -->
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody id="showBody">
-          <!-- // -->
-        </tbody>
-      </table>
+    <div class="container">
+      <div style="text-align: center">
+        <div class="box">
+          <span class="blok cube-1"></span>
+          <span class="blok cube-2"></span>
+          <span class="blok cube-3"></span>
+          <span class="blok cube-4"></span>
+          <span class="blok cube-5"></span>
+          <span class="blok cube-6"></span>
+          <span class="blok cube-7"></span>
+          <span class="blok cube-8"></span>
+          <span class="blok cube-9"></span>
+        </div>
+        <br />
+        <span id="countId">0</span>
+        <br />
+        <button id="startStopButton" onclick="toggleStartStop()">Start</button>
+      </div>
     </div>
 
     <script>
-      const createBtn = document.getElementById("createBtn");
-      const deleteBtn = document.getElementById("deleteBtn");
-      const editBtn = document.getElementById("editBtn");
-      const inputName = document.getElementById("inputName");
-      const showBody = document.getElementById("showBody");
-      var array = [];
+      const blocks = document.querySelectorAll(".blok");
+      const countId = document.getElementById("countId");
+      const startStopButton = document.getElementById("startStopButton");
+      var error = true;
+      let currentAudio = null;
+      var count = 0;
+      let intervalId = null; // Stores the interval ID
 
-      //   create
-      createBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        array.push(inputName.value);
-        localStorage.setItem("userArray", JSON.stringify(array));
-        inputName.value = "";
-        showTable();
-      });
-
-      //   show array
-      function showTable() {
-        array = JSON.parse(localStorage.getItem("userArray"));
-        var showBodyMap = array.map(
-          (item, index) =>
-            `<tr>
-            <th scope="row">${index + 1}</th>
-            <td>${item}</td>
-            <td>
-              <button class="btn btn-primary" onclick="editFun(${index})">
-                <i class="fas fa-edit"></i>
-              </button>
-              <button class="btn btn-danger" onclick="deleteFun(${index})">
-                <i class="fas fa-trash"></i>
-              </button>
-            </td>
-          </tr>`
-        );
-        showBody.innerHTML = showBodyMap.join("");
-      }
-      console.log(JSON.parse(localStorage.getItem("userArray")).length);
-      
-      
-      if (JSON.parse(localStorage.getItem("userArray")).length > 0) {
-        showTable();
-      }
-
-      //   delete
-      function deleteFun(id) {
-        if (id >= 0 && id < array.length) {
-          array.splice(id, 1); // Remove one item at the specified index
+      function audioFun(src) {
+        if (!error) {
+          if (currentAudio && !currentAudio.paused) {
+            return;
+          }
+          currentAudio = new Audio(src);
+          currentAudio.play();
         } else {
-          console.error("Invalid index");
+          if (currentAudio && !currentAudio.paused) {
+            currentAudio.pause();
+          }
+          var currentAudio1 = new Audio(src);
+          currentAudio1.play();
         }
-        localStorage.setItem("userArray", JSON.stringify(array));
-        showTable();
       }
 
-      //   edit
-      function editFun(id) {
-        editBtn.style.display = "block";
-        createBtn.style.display = "none";
-        inputName.value = array[id];
-        inputName.setAttribute("name", id)
+      function selectRandomBlock() {
+        error = true;
+        const randomIndex = Math.floor(Math.random() * blocks.length);
+
+        blocks[randomIndex].classList.add("active");
+
+        blocks[randomIndex].addEventListener("click", (e) => {
+          error = false;
+        });
+
+        setTimeout(() => {
+          blocks.forEach((block) => block.classList.remove("active"));
+          if (error) {
+            audioFun("./mp3/piano-mp3_A0.mp3");
+            count = 0;
+          } else {
+            audioFun("./mp3/Billie Eilish - Bad Guy.mp3");
+            count += 1;
+          }
+          audioFun();
+        }, 800);
+
+        countId.innerText = "Count: " + count;
       }
 
-      // save
-      editBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        var index = inputName.getAttribute("name");
-        if (index >= 0 && index < array.length) {
-            array[index] = inputName.value;
+      function toggleStartStop() {
+        if (intervalId === null) {
+          // Start the interval if it's not running
+          intervalId = setInterval(selectRandomBlock, 2000);
+          startStopButton.textContent = "Stop"; // Change button text
+        } else {
+          // Stop the interval if it's running
+          clearInterval(intervalId);
+          intervalId = null;
+          startStopButton.textContent = "Start"; // Change button text
         }
-        localStorage.setItem("userArray", JSON.stringify(array));
-        editBtn.style.display = "none";
-        createBtn.style.display = "block";
-        inputName.value = "";
-        showTable();
-      });
+      }
     </script>
   </body>
 </html>
